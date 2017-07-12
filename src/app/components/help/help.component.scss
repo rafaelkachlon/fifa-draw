@@ -1,3 +1,52 @@
 .help{
-    
+color: black;
+
+.header{
+    margin-bottom: 40px;
+}
+.button{
+  
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-decoration: underline;
+    margin-left: auto;
+    margin-right:auto;
+    color: #000;
+    font: normal 700 24px/1 "Calibri", sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px 0 #000;
+    width: 200px;
+    cursor: pointer;
+}
+p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.help-cont{
+    border-radius: 10px;
+    width: 415px;
+    height: 270px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    padding-top: 20px;
+
+    &.results{
+            height: 355px;
+    }
+
+    &.by-level{
+        height: 330px;
+    }
+
+    &.bl2{
+        height: 350px;
+    }
+}
+
+.help-pic{
+    // border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 28px 5px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 28px 5px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 28px 5px rgba(0,0,0,0.75);
+}
 }

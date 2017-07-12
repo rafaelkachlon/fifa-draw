@@ -11,5 +11,5 @@
         vm.name = "אודות";
         vm.Back = function(){
             $state.go('menu');
-        }
+        };
     }
