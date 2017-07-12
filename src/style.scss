@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Conv_BNBilbo';
+    src: url('fonts/BNBilbo.eot');
+    src: local('☺'), url('assets/fonts/BNBilbo.woff') format('woff'), url('assets/fonts/BNBilbo.ttf') format('truetype'), url('fonts/BNBilbo.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+html{
+     background: url(assets/images/bg.png) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: scroll;
+    min-height: 100%;
+}
+
+body {
+    color: white !important;
+    font-family: David;
+    background-color:transparent !important
+}
+
+.logo {
+    width: 100%;
+}
+
+.blur-bg {
+    background-color: rgba(255, 219, 23,0.5);
+    color: black;
+    border: 1px solid#f8bd52;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 20px;
+    -webkit-box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
+    -moz-box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
+    box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
+}
+
+.heb {
+    font-family: Conv_BNBilbo;
+}
+
+.header {
+    width: 250px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50px;
+    background-color: #ffdb17;
+    color: black;
+    margin-bottom: -35px;
+    padding: 0 !important;
+}
+
+.back-btn {
+    margin-top: 5px;
+    background-color: #00003f;
+    border-radius: 5px;
+    color: white;
+    width: 185px !important;
+    border: none;
+}
