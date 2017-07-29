@@ -6,19 +6,19 @@ angular
         controllerAs: 'vm'
     });
 
-resultController.$inject = ['$state', 'resultService','$timeout'];
+resultController.$inject = ['$state', 'resultService', '$timeout'];
 
-function resultController($state, resultService,$timeout) {
-    if (resultService.resultsAreNotEmpty() ||true) {
+function resultController($state, resultService, $timeout) {
+    if (resultService.resultsAreNotEmpty() || true) {
         var vm = this;
         vm.name = "והרי תוצאות";
         vm.couples = [];
 
         vm.$onInit = function () {
-            $timeout(function(){
-            vm.couples = resultService.getResults();
-            console.log(vm.couples);
-            },1000)
+            $timeout(function () {
+                vm.couples = resultService.getResults();
+                console.log(vm.couples);
+            }, 1000);
         };
     }
     else {

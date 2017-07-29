@@ -1,29 +1,31 @@
-    angular
-        .module('components')
-        .component('simpleDraw', {
-            templateUrl: './simple-draw.component.html',
-            controller: simpleDrawController,
-            controllerAs: 'vm',
-            bindings: {
-                Binding: '=',
-            },
-        });
-        simpleDrawController.$inject = ['$state','resultService'];
-    function simpleDrawController($state,resultService) {
-        var vm = this;
-        vm.name = "הגרלה רגילה";
-        vm.isInvalid = false;
-        vm.Count = 0;
-        vm.ShowButton = false;
-        vm.showPlayersError = false;
-        vm.Players = null;
+angular
+    .module('components')
+    .component('simpleDraw', {
+        templateUrl: './simple-draw.component.html',
+        controller: simpleDrawController,
+        controllerAs: 'vm',
+        bindings: {
+            Binding: '=',
+        },
+    });
+
+simpleDrawController.$inject = ['$state', 'resultService'];
+
+function simpleDrawController($state, resultService) {
+    var vm = this;
+    vm.name = "הגרלה רגילה";
+    vm.isInvalid = false;
+    vm.Count = 0;
+    vm.ShowButton = false;
+    vm.showPlayersError = false;
+    vm.Players = null;
 
 
-        vm.Submit = function () {
+    vm.Submit = function () {
         if (vm.Count != 0) {
             this.isInvalid = false;
 
-            vm.Players = new Array(parseInt(this.Count));
+            vm.Players = new Array(parseInt(vm.Count));
             for (var i = 0; i < vm.Players.length; i++) {
                 vm.Players[i] = { name: "" };
             }
@@ -31,30 +33,29 @@
         }
         else {
             vm.isInvalid = true;
-
         }
-        };
+    };
 
-         vm.AddOne = function () {
+    vm.AddOne = function () {
         if (vm.Count == 0) {
             vm.Count = 4;
         }
         else if (vm.Count < 20) {
             vm.Count++;
         }
-       };
+    };
 
-        vm.RemoveOne = function () {
+    vm.RemoveOne = function () {
         if (vm.Count > 4) {
             vm.Count--;
         }
-        };
+    };
 
-
-         this.Shuffle = function () {
+    vm.Shuffle = function () {
 
         var counter = 0;
         if (vm.Players) {
+            //check if user inserted name for all players
             for (var i = 0; i < vm.Players.length; i++) {
                 if (vm.Players[i].name != "") {
                     counter++;
@@ -66,24 +67,23 @@
             resultService.emptyResults();
             var arr = vm.randomizeResults(vm.Players);
             while (arr.length != 0) {
-                    var couple = {};
+                var couple = {};
                 if (arr.length == 1) {
                     couple = {};
                     couple.first = arr[arr.length - 1].name;
                     couple.second = null;
-                   resultService.pushResult(couple);
+                    resultService.pushResult(couple);
                     arr.pop();
                 }
                 else {
                     couple = {};
                     couple.first = arr[arr.length - 1].name;
                     couple.second = arr[arr.length - 2].name;
-                   resultService.pushResult(couple);
+                    resultService.pushResult(couple);
                     arr.pop();
                     arr.pop();
                 }
             }
-            console.log('result');
             $state.go('result');
         }
         else {
@@ -91,7 +91,7 @@
         }
     };
 
-        vm.randomizeResults = function (array) {
+    vm.randomizeResults = function (array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...
@@ -106,5 +106,5 @@
             array[randomIndex] = temporaryValue;
         }
         return array;
-        };
-    }
+    };
+}

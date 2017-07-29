@@ -3,14 +3,14 @@ angular
         'templates',
         'components',
         'ngAnimate',
-        'ui.router'       
+        'ui.router'
     ])
-    .config(function($stateProvider,$urlRouterProvider){     
+    .config(function ($stateProvider, $urlRouterProvider) {
         // $urlRouterProvider.otherwise('/menu');
         $stateProvider
-        .state('app',{
-            url:'/app',
-            component:'app',
-            redirectTo:'menu'
-        });
+            .state('app', {
+                url: '/app',
+                component: 'app',
+                redirectTo: 'menu'
+            });
     });

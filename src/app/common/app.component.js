@@ -1,11 +1,11 @@
-    angular
-        .module('app')
-        .component('app', {
-            templateUrl: './app.component.html',
-            controller: appController,
-            controllerAs: 'vm',
-        });
+angular
+    .module('app')
+    .component('app', {
+        templateUrl: './app.component.html',
+        controller: appController,
+        controllerAs: 'vm',
+    });
 
-    function appController() {
-        var vm = this;
-    }
+function appController() {
+    var vm = this;
+}

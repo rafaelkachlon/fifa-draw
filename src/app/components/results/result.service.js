@@ -1,30 +1,31 @@
-    angular
-        .module('result')
-        .service('resultService', resultService);
+angular
+    .module('result')
+    .service('resultService', resultService);
 
-    resultService.$inject = ['$state'];
-    function resultService($state) {
-        var results = [];
+resultService.$inject = ['$state'];
 
-        function getResults(){
-            return results;
-        }
-        function pushResult(result){
-            results.push(result);
-        }
+function resultService($state) {
+    var results = [];
 
-        function emptyResults(){
-            results = [];
-        }
+    function getResults() {
+        return results;
+    }
+    function pushResult(result) {
+        results.push(result);
+    }
 
-        function resultsAreNotEmpty(){
-        return results.length>0;
-        } 
-            
-        return {
-            getResults:getResults,
-            pushResult:pushResult,
-            emptyResults:emptyResults,
-            resultsAreNotEmpty:resultsAreNotEmpty
-        }
-        };
+    function emptyResults() {
+        results = [];
+    }
+
+    function resultsAreNotEmpty() {
+        return results.length > 0;
+    }
+
+    return {
+        getResults: getResults,
+        pushResult: pushResult,
+        emptyResults: emptyResults,
+        resultsAreNotEmpty: resultsAreNotEmpty
+    };
+}
