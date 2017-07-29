@@ -5,6 +5,6 @@ angular
     .config(function($stateProvider){
         $stateProvider.state('menu',{
             url:'/menu',
-            component:'menu'
+            component:'fifaMenu'
         });
     });

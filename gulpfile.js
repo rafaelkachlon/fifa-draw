@@ -34,7 +34,9 @@ gulp.task('lint', function() {
 
 // Compile Our Sass
 gulp.task('sass', function() {
-   return  gulp.src(['./node_modules/bootstrap/dist/css/bootstrap.css','src/**/*.scss'])
+   return  gulp.src(['./node_modules/bootstrap/dist/css/bootstrap.css',
+        './node_modules/font-awesome/css/font-awesome.css',
+        'src/**/*.scss'])
         .pipe(concat('styles.css'))
         .pipe(sass())
         .pipe(gulp.dest('dist'));
@@ -60,6 +62,8 @@ gulp.task('copy:html', function () {
 });
 
 gulp.task('copy:assets', function () {
+    gulp.src('node_modules/bootstrap/fonts/*.*')
+    .pipe(gulp.dest('dist/fonts'));
     return gulp
       .src('src/assets/**/*.*')
       .pipe(gulp.dest('dist/assets'));

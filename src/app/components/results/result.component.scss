@@ -1,0 +1,38 @@
+.result{
+    .more-opacity {
+    background-color: rgba(255, 219, 23,0.9);
+    }
+
+.ng-enter.couples {
+    -webkit-transform: scale(0);
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 400ms;
+}
+
+.ng-enter-active.couples {
+    -webkit-transform: scale(1);
+}
+
+.couples {
+    padding: 15px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin: 40px auto;
+    color: rgba(0,0,0,0.8);
+}
+
+.name {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    width: 30%;
+}
+
+.seperator {
+    width: 30%;
+    display: inline-block;
+}
+}

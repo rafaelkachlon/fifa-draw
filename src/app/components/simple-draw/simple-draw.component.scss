@@ -1,2 +1,50 @@
 .simple-draw{
+    
+.inputButtonsChild {
+    display: inline-block;
+}
+
+    .inputButtonsChild.inputButtons {
+        width: 30px;
+        color: white;
+        background-color: #00003f;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .inputButtonsChild.countInput {
+        width: 120px;
+        background-color: white;
+        border: none;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        margin: 0;
+    }
+
+input {
+    text-align: center;
+}
+
+.playerInput {
+    border-radius: 10px;
+    width: 100px;
+    margin: 10px;
+    font-weight: bold;
+}
+.plusMinus {
+    font-size: 10px;
+}
+
+.confirmBtn {
+    margin-top: 5px;
+    /* background-color: black; */
+    background-color: #00003f;
+    border-radius: 5px;
+    color: white;
+    width: 185px !important;
+    border: none;
+}
+
+
 }

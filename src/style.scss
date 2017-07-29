@@ -5,8 +5,14 @@
     font-weight: normal;
     font-style: normal;
 }
-html{
-     background: url(assets/images/bg.png) no-repeat center center fixed;
+
+body {
+    color: white !important;
+    font-family: David;
+    background-color:transparent !important
+}
+.root{
+      background: url(assets/images/bg.png) no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -14,12 +20,6 @@ html{
     background-size: cover;
     background-attachment: scroll;
     min-height: 100%;
-}
-
-body {
-    color: white !important;
-    font-family: David;
-    background-color:transparent !important
 }
 
 .logo {
@@ -63,4 +63,34 @@ body {
     width: 185px !important;
     border: none;
     font-size: 18px;
+}
+
+@media(min-width:992px){
+    .root{
+        max-width: 414px;
+        height: 736px;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        overflow-y: auto;
+    }
+   .mobile-emulator {
+    background-image: url('/assets/images/iphone.png');
+    width: 671px;
+    height: 1178px;
+    background-size: 671px 1178px;
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+}
+.frame-emulator {
+    width: 414px;
+    height: 736px;
+    margin: 221px 0 0 128px;
+}
+.frame-scroller {
+    display: inline-block;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+}
 }

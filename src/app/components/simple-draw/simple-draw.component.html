@@ -1,6 +1,32 @@
-<div class="container text-center simple-draw heb">
-  <h1>{{vm.name}}</h1>
+<div class="text-center simple-draw heb">
+ <div class="blur-bg">
+        <p class="hmplayers">כמה שחקנים? <span>(4-20)</span></p>
+        <hr />
 
-         <back-button></back-button>
+        <form name="myForm" ng-submit="vm.Submit()">
+            <div class="inputButtons">
+                <div ng-click="vm.AddOne()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-plus plusMinus"></span></div>
+                <input ng-model="vm.Count" class="inputButtonsChild countInput heb" type="text" readonly required />
+                <div ng-click="vm.RemoveOne()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-minus plusMinus"></span></div>
+            </div>
+            <!--<div ng-click="raffle.AddOne()" class="btn btn-success"><span class="glyphicon glyphicon-plus plusMinus"></span></div>
+            <input ng-model="raffle.Count" type="text" min="4" max="20" class="text-center heb" readonly required />
+            <div ng-click="raffle.RemoveOne()" class="btn btn-success"><span class="glyphicon glyphicon-minus plusMinus"></span></div>-->
+            <input class="confirmBtn heb" type="submit" value="אשר"/>
+            <div ng-show="vm.isInvalid" class="alert alert-danger">אנא בחר מספר שחקנים (לפחות 4)</div>
+        </form>
+        <div class="namesInputs">
+            <p class="whoplays heb" ng-show="vm.ShowButton">מי משחק?</p>
+        <hr ng-show="vm.ShowButton" />
+            <div ng-show="vm.showPlayersError" class="alert alert-danger">חובה להכניס שמות שחקנים</div>
+            <form>
+                <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.Players" value="p.name" placeholder="שחקן {{$index+1}}" required />
+                <br />
+                <input type="submit" class="confirmBtn heb draw" ng-show="vm.ShowButton" ng-click="vm.Shuffle()"  value="הגרל">
+                <!--<input type="submit" class="btn btn-danger heb" ng-show="raffle.ShowButton" ng-click="raffle.Shuffle()" style="margin-top: 20px;" value="הגרל">-->
+            </form>
+        </div>
+          <back-button></back-button>
+    </div>
 
 </div>

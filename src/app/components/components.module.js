@@ -4,5 +4,6 @@ angular
         'simpleDraw',
         'byLevelDraw',
         'help',
-        'about'
+        'about',
+        'result'
     ]);

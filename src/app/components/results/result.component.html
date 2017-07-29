@@ -1,0 +1,15 @@
+<div class="text-center result heb">
+     <div class="blur-bg more-opacity">
+        <div class="header">{{vm.name}}</div>
+          <div class="namesInputs">
+            <div ng-repeat="r in vm.couples" class="couples" style="-webkit-transition-delay:{{$index*1000}}ms">
+                <span ng-show="r.second ==null" class="glyphicon glyphicon-thumbs-down"></span>
+                <div class="name">{{r.first}}</div>
+                <div ng-show="r.second !=null" class="seperator">|</div>
+                <div ng-show="r.second !=null" class="name">{{r.second}}</div>
+                <span ng-show="r.second ==null" class="glyphicon glyphicon-thumbs-down"></span>
+            </div>
+        </div>   
+    </div>
+        <back-button></back-button>
+</div>

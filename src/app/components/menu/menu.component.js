@@ -1,6 +1,6 @@
     angular
         .module('menu')
-        .component('menu', {
+        .component('fifaMenu', {
             templateUrl: './menu.component.html',
             controller: menuController,
             controllerAs: 'vm',
