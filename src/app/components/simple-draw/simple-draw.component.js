@@ -27,7 +27,7 @@ function simpleDrawController($state, resultService) {
 
             vm.Players = new Array(parseInt(vm.Count));
             for (var i = 0; i < vm.Players.length; i++) {
-                vm.Players[i] = { name: "" };
+                vm.Players[i] = { name: "שחקן " + i };
             }
             vm.ShowButton = true;
         }
