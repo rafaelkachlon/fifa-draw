@@ -1,3 +1,56 @@
 .by-level-draw{
     
+.hm-players {
+    /*color: white;*/
+    font-size: 25px;
+}
+
+.hm-players-levels {
+    margin-top: 30px;
+}
+.plusMinus {
+    font-size: 10px;
+}
+.inputButtonsChild {
+    display: inline-block;
+
+
+    &.inputButtons {
+        width: 30px;
+        color: white;
+        background-color: #00003f;
+        margin: 0;
+        padding: 10px;
+    }
+    &.countInput {
+        width: 120px;
+        background-color: white;
+        border: none;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        margin: 0;
+    }
+}
+.who-plays {
+    font-size: 25px;
+    margin-top: 20px;
+}
+.confirm-btn {
+    margin-top: 10px;
+    background-color: #00003f;
+    border-radius: 5px;
+    color: white;
+    width: 185px !important;
+    border: none;
+}
+
+.playerInput {
+    text-align: center;
+    border-radius: 10px;
+    width: 100px;
+    margin: 10px;
+    font-weight: bold;
+}
+
 }

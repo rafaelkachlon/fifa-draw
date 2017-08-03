@@ -37,11 +37,18 @@ body {
     -moz-box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
     box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
 }
-
+hr {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: rgba(128, 128, 128,0.5);
+}
 .heb {
     font-family: Conv_BNBilbo;
 }
-
+.more-opacity {
+    background-color: rgba(255, 219, 23,0.9);
+}
 .header {
     width: 250px;
     font-weight: bold;
@@ -75,7 +82,7 @@ body {
         overflow-y: auto;
     }
    .mobile-emulator {
-    background-image: url('/assets/images/iphone.png');
+    background-image: url('./assets/images/iphone.png');
     width: 671px;
     height: 1178px;
     background-size: 671px 1178px;
