@@ -9,7 +9,4 @@ aboutController.$inject = ['$state'];
 function aboutController($state) {
     var vm = this;
     vm.name = "אודות";
-    vm.Back = function () {
-        $state.go('menu');
-    };
 }

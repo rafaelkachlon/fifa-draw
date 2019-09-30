@@ -21,7 +21,7 @@ function simpleDrawController($state, resultService) {
     vm.Players = null;
 
 
-    vm.Submit = function () {
+    vm.submit = function () {
         if (vm.Count != 0) {
             this.isInvalid = false;
 
@@ -36,7 +36,7 @@ function simpleDrawController($state, resultService) {
         }
     };
 
-    vm.AddOne = function () {
+    vm.addOne = function () {
         if (vm.Count == 0) {
             vm.Count = 4;
         }
@@ -45,13 +45,13 @@ function simpleDrawController($state, resultService) {
         }
     };
 
-    vm.RemoveOne = function () {
+    vm.removeOne = function () {
         if (vm.Count > 4) {
             vm.Count--;
         }
     };
 
-    vm.Shuffle = function () {
+    vm.shuffle = function () {
 
         var counter = 0;
         if (vm.Players) {
