@@ -3,10 +3,10 @@ angular
         'templates',
         'components',
         'ngAnimate',
-        'ui.router'
+        'ui.router',
+        'ngCookies'
     ])
-    .config(function ($stateProvider, $urlRouterProvider) {
-        // $urlRouterProvider.otherwise('/menu');
+    .config(function ($stateProvider) {
         $stateProvider
             .state('app', {
                 url: '/app',
