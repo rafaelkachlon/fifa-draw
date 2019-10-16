@@ -21,7 +21,7 @@ function simpleDrawController($state, resultService, $cookies) {
     vm.Players = $cookies.getObject('players');
 
 
-    vm.submit = function () {
+    vm.Submit = function () {
         if (vm.Count != 0) {
             this.isInvalid = false;
             $cookies.remove('count');
@@ -37,7 +37,7 @@ function simpleDrawController($state, resultService, $cookies) {
         }
     };
 
-    vm.addOne = function () {
+    vm.AddOne = function () {
         if (vm.Count == 0) {
             vm.Count = 4;
         }
@@ -46,7 +46,7 @@ function simpleDrawController($state, resultService, $cookies) {
         }
     };
 
-    vm.removeOne = function () {
+    vm.RemoveOne = function () {
         if (vm.Count > 4) {
             vm.Count--;
         }
@@ -55,52 +55,17 @@ function simpleDrawController($state, resultService, $cookies) {
 
     vm.Shuffle = function () {
         if (vm.playersForm.$valid) {
-            var counter = 0;
-            if (vm.Players) {
-                //check if user inserted name for all players
-                for (var i = 0; i < vm.Players.length; i++) {
-                    if (vm.Players[i].name != "") {
-                        counter++;
-                    }
-                }
-            }
-            if (counter == vm.Players.length) {
-                $cookies.putObject('count', vm.Count);
-                $cookies.putObject('players', vm.Players);
-                resultService.emptyResults();
-                var arr = vm.randomizeResults(vm.Players);
-                while (arr.length != 0) {
-                    var couple = {};
-                    if (arr.length == 1) {
-                        couple = {};
-                        couple.first = arr[arr.length - 1].name;
-                        couple.second = null;
-                        resultService.pushResult(couple);
-                        arr.pop();
-                    }
-                    else {
-                        couple = {};
-                        couple.first = arr[arr.length - 1].name;
-                        couple.second = arr[arr.length - 2].name;
-                        resultService.pushResult(couple);
-                        arr.pop();
-                        arr.pop();
-                    }
-                }
-                $state.go('result');
-            }
-            else {
-                vm.showPlayersError = true;
-            }
-
+            $cookies.putObject('count', vm.Count);
+            $cookies.putObject('players', vm.Players);
+            resultService.emptyResults();
+            $state.go('result');
         }
         else {
-            console.log('invalid');
             vm.showPlayersError = true;
         }
     };
 
-    vm.randomizeResults = function (array) {
+    vm.RandomizeResults = function (array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...

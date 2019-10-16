@@ -22,6 +22,6 @@ function resultController($state, resultService, $timeout) {
         };
     }
     else {
-        $state.go('menu');
+        // $state.go('menu');
     }
 }
