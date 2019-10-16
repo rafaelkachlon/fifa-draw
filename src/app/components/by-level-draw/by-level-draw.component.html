@@ -1,6 +1,6 @@
 <div class="text-center by-level-draw">
   <div class="blur-bg more-opacity">
-    <h1 class="heb">{{vm.name}}</h1>
+    <h1 class="header heb">{{vm.name}}</h1>
     <p class="heb hm-players hm-players-levels">כמה שחקנים? <span>(4-20)</span></p>
     <hr />
     <form name="myForm" ng-submit="vm.Submit()">
@@ -27,17 +27,22 @@
     <div class="namesInputs">
       <p class="who-plays heb" ng-show="vm.ShowButton">מי משחק?</p>
       <hr ng-show="vm.ShowButton" />
-      <div ng-show="vm.showPlayersError" class="alert alert-danger">חובה להכניס שמות שחקנים</div>
-      <form>
+      <form name="vm.playersForm" novalidate>
         <p class="heb" ng-show="vm.IsValid">מקצוענים</p>
-        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.PlayersPro" value="p.name"
-          placeholder="שחקן {{$index+1}}" required />
+        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.PlayersPro"
+          name="proPlayer{{$index}}" placeholder="שחקן {{$index+1}}" required
+          ng-class="{'error': vm.playersForm.proPlayer{{$index}}.$invalid  && vm.submitted}" />
         <br />
         <p class="heb" ng-show="vm.IsValid">חובבנים</p>
-        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.PlayersAmateur" value="p.name"
-          placeholder="שחקן {{$index+1}}" required />
+        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.PlayersAmateur"
+          name="player{{$index}}" placeholder="שחקן {{$index+1}}" required
+          ng-class="{'error': vm.playersForm.player{{$index}}.$invalid  && vm.submitted}" />
         <br />
-        <input type="submit" class="confirm-btn heb draw" ng-show="vm.ShowButton" ng-click="vm.Shuffle()" value="הגרל">
+      <div ng-show="vm.showPlayersError" class="alert alert-danger">חובה להכניס שמות שחקנים</div>
+
+        <input type="submit" class="confirm-btn heb draw"
+          ng-show="vm.PlayersPro.length>0 && vm.PlayersAmateur.length>0 " ng-click="vm.Shuffle();vm.submitted = true"
+          value="הגרל">
       </form>
     </div>
     <back-button></back-button>

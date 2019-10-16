@@ -21,7 +21,7 @@
             <form name="vm.playersForm" novalidate>
                 <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.Players"
                     name="player{{$index}}" placeholder="שחקן {{$index+1}}" required
-                    ng-class="{'error':vm.playersForm.player{{$index}}.$invalid && vm.playersForm.player{{$index}}.$invalid  && vm.submitted}" />
+                    ng-class="{'error': vm.playersForm.player{{$index}}.$invalid  && vm.submitted}" />
                 <br />
                 <div ng-show="vm.playersForm.$invalid && vm.submitted" class="alert alert-danger">חובה להכניס שמות
                     שחקנים</div>

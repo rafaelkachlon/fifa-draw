@@ -1,56 +1,64 @@
-.by-level-draw{
-    
-.hm-players {
-    /*color: white;*/
+.by-level-draw {
+  .header {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .hm-players {
+    color: white;
     font-size: 25px;
-}
+  }
 
-.hm-players-levels {
+  .hm-players-levels {
     margin-top: 30px;
-}
-.plusMinus {
+  }
+  .plusMinus {
     font-size: 10px;
-}
-.inputButtonsChild {
+  }
+  .inputButtonsChild {
     display: inline-block;
 
-
     &.inputButtons {
-        width: 30px;
-        color: white;
-        background-color: #00003f;
-        margin: 0;
-        padding: 10px;
+      width: 30px;
+      color: white;
+      background-color: #00003f;
+      margin: 0;
+      padding: 10px;
     }
     &.countInput {
-        width: 120px;
-        background-color: white;
-        border: none;
-        text-align: center;
-        color: black;
-        font-weight: bold;
-        margin: 0;
+      width: 120px;
+      background-color: white;
+      border: none;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      margin: 0;
     }
-}
-.who-plays {
+  }
+  .who-plays {
     font-size: 25px;
     margin-top: 20px;
-}
-.confirm-btn {
+  }
+  .confirm-btn {
     margin-top: 10px;
     background-color: #00003f;
     border-radius: 5px;
     color: white;
     width: 185px !important;
     border: none;
-}
-
-.playerInput {
+  }
+  .namesInputs {
+    margin-top: 60px;
+  }
+  .playerInput {
+    color: black;
     text-align: center;
     border-radius: 10px;
     width: 100px;
     margin: 10px;
     font-weight: bold;
-}
-
+    &.error {
+      background: #f2dede;
+      border: 1px solid #a21111;
+    }
+  }
 }

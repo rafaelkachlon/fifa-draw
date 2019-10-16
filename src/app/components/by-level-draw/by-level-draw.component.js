@@ -9,15 +9,15 @@ angular
         },
     });
 
-byLevelDrawController.$inject = ['$state', 'resultService'];
+byLevelDrawController.$inject = ['$state', 'resultService', '$cookies'];
 
-function byLevelDrawController($state, resultService) {
+function byLevelDrawController($state, resultService, $cookies) {
     var vm = this;
     vm.name = "הגרל בין רמות";
-    vm.CountPro = 0;
-    vm.CountAmateur = 0;
-    vm.PlayersPro = null;
-    vm.PlayersAmateur = null;
+    vm.CountPro = $cookies.getObject('countPro') ? $cookies.getObject('countPro') : 0;
+    vm.CountAmateur = $cookies.getObject('countAmateur') ? $cookies.getObject('countAmateur') : 0;
+    vm.PlayersPro = $cookies.getObject('playersPro');;
+    vm.PlayersAmateur = $cookies.getObject('playersAmateur');
 
 
     vm.AddOnePro = function () {
@@ -53,7 +53,11 @@ function byLevelDrawController($state, resultService) {
     vm.Submit = function () {
         if (vm.CountPro != 0 && vm.CountAmateur != 0) {
             this.isInvalid = false;
-
+            $cookies.remove('mode');
+            $cookies.remove('countPro');
+            $cookies.remove('countAmateur');
+            $cookies.remove('playersPro');
+            $cookies.remove('playersAmateur');
             vm.PlayersPro = new Array(parseInt(vm.CountPro));
             vm.PlayersAmateur = new Array(parseInt(vm.CountAmateur));
             for (var i = 0; i < vm.PlayersPro.length; i++) {
@@ -71,119 +75,13 @@ function byLevelDrawController($state, resultService) {
     };
 
     vm.Shuffle = function () {
-
-        var counterPro = 0;
-        var counterAmateur = 0;
-        if (vm.PlayersPro && vm.PlayersAmateur) {
-            for (var i = 0; i < vm.PlayersPro.length; i++) {
-                if (vm.PlayersPro[i].name != "") {
-                    counterPro++;
-                }
-            }
-            for (i = 0; i < vm.PlayersAmateur.length; i++) {
-                if (vm.PlayersAmateur[i].name != "") {
-                    counterAmateur++;
-                }
-            }
-        }
-        if (counterPro == vm.PlayersPro.length && counterAmateur == vm.PlayersAmateur.length) {
-
+        if (vm.playersForm.$valid) {
             resultService.emptyResults();
-            var arrPro = vm.RandomizeResults(vm.PlayersPro);
-            var arrAmateur = vm.RandomizeResults(vm.PlayersAmateur);
-            while (arrPro.length != 0 || arrAmateur.length != 0) {
-                var couple = {};
-                if (arrPro.length == 1 || arrAmateur.length == 1) {
-
-                    if (arrPro.length == 1 && arrAmateur.length == 1) {
-
-                        couple = {};
-                        couple.first = arrPro[arrPro.length - 1].name;
-                        couple.second = arrAmateur[arrAmateur.length - 1].name;
-                        resultService.pushResult(couple);
-                        arrPro.pop();
-                        arrAmateur.pop();
-                    }
-
-                    else if (arrPro.length <= 1 && arrAmateur.length == 0) {
-                        couple = {};
-                        couple.first = arrPro[arrPro.length - 1].name;
-                        couple.second = null;
-                        resultService.pushResult(couple);
-                        arrPro.pop();
-                    }
-                    else if (arrPro.length == 0 && arrAmateur.length <= 1) {
-                        couple = {};
-                        couple.first = arrAmateur[arrAmateur.length - 1].name;
-                        couple.second = null;
-                        resultService.pushResult(couple);
-                        arrAmateur.pop();
-                    }
-                    else if (arrPro.length > 1 && arrAmateur.length == 1) {
-                        couple = {};
-                        couple.first = arrPro[arrPro.length - 1].name;
-                        couple.second = arrAmateur[arrAmateur.length - 1].name;
-                        resultService.pushResult(couple);
-                        arrPro.pop();
-                        arrAmateur.pop();
-                    }
-                    else if (arrPro.length == 1 && arrAmateur.length > 1) {
-                        couple = {};
-                        couple.first = arrPro[arrPro.length - 1].name;
-                        couple.second = arrAmateur[arrAmateur.length - 1].name;
-                        resultService.pushResult(couple);
-                        arrPro.pop();
-                        arrAmateur.pop();
-                    }
-                }
-                else {
-                    if (arrPro.length > 0 && arrAmateur.length > 0) {
-                        couple = {};
-                        couple.first = arrPro[arrPro.length - 1].name;
-                        couple.second = arrAmateur[arrAmateur.length - 1].name;
-                        resultService.pushResult(couple);
-                        arrPro.pop();
-                        arrAmateur.pop();
-                    }
-                    else {
-                        if (arrPro.length == 0) {
-                            if (arrAmateur.length > 1) {
-                                couple = {};
-                                couple.first = arrAmateur[arrAmateur.length - 1].name;
-                                couple.second = arrAmateur[arrAmateur.length - 2].name;
-                                resultService.pushResult(couple);
-                                arrAmateur.pop();
-                                arrAmateur.pop();
-                            }
-                            else {
-                                couple = {};
-                                couple.first = arrAmateur[arrAmateur.length - 1].name;
-                                couple.second = null;
-                                resultService.pushResult(couple);
-                                arrAmateur.pop();
-                            }
-                        }
-                        else if (arrAmateur.length == 0) {
-                            if (arrPro.length > 1) {
-                                couple = {};
-                                couple.first = arrPro[arrPro.length - 1].name;
-                                couple.second = arrPro[arrPro.length - 2].name;
-                                resultService.pushResult(couple);
-                                arrPro.pop();
-                                arrPro.pop();
-                            }
-                            else {
-                                Scouple = {};
-                                couple.first = arrPro[arrPro.length - 1].name;
-                                couple.second = null;
-                                resultService.pushResult(couple);
-                                arrPro.pop();
-                            }
-                        }
-                    }
-
-                }
-            }
+            $cookies.put('mode', 'level');
+            $cookies.putObject('countPro', vm.CountPro);
+            $cookies.putObject('countAmateur', vm.CountAmateur);
+            $cookies.putObject('playersPro', vm.PlayersPro);
+            $cookies.putObject('playersAmateur', vm.PlayersAmateur);
             $state.go('result');
         }
         else {

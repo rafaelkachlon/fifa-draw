@@ -24,8 +24,11 @@
   input {
     text-align: center;
   }
-
+  .hmplayers {
+    color: white;
+  }
   .playerInput {
+    color: black;
     border-radius: 10px;
     width: 100px;
     margin: 10px;
@@ -48,4 +51,7 @@
     width: 185px !important;
     border: none;
   }
+  // input {
+  //   color: black !important;
+  // }
 }

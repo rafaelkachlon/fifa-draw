@@ -1,103 +1,107 @@
 @font-face {
-    font-family: 'Conv_BNBilbo';
-    src: url('fonts/BNBilbo.eot');
-    src: local('☺'), url('assets/fonts/BNBilbo.woff') format('woff'), url('assets/fonts/BNBilbo.ttf') format('truetype'), url('fonts/BNBilbo.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Conv_BNBilbo";
+  src: url("fonts/BNBilbo.eot");
+  src: local("☺"), url("assets/fonts/BNBilbo.woff") format("woff"), url("assets/fonts/BNBilbo.ttf") format("truetype"),
+    url("fonts/BNBilbo.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
-    color: black !important;
-    font-family: David;
-    background-color:transparent !important
+  color: white !important;
+  font-family: David;
+  background-color: transparent !important;
 }
-.root{
-      background: url(assets/images/bg.png) no-repeat center center fixed;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-attachment: scroll;
-    min-height: 100%;
+.root {
+  background: url(assets/images/bg1.png) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: scroll;
+  min-height: 100%;
 }
 
 .logo {
-    width: 100%;
+  width: 100%;
 }
 
 .blur-bg {
-    background-color: rgba(255, 219, 23,0.5);
-    color: black;
-    border: 1px solid#f8bd52;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 20px;
-    -webkit-box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
-    -moz-box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
-    box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
+  background-color: rgba(255, 219, 23, 0.5);
+  background-color: rgba(250, 34, 97, 0.8);
+
+  color: white;
+  // border: 1px solid#f8bd52;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 20px;
+  // -webkit-box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
+  // -moz-box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
+  // box-shadow: -2px 18px 37px -22px rgba(143,143,90,1);
 }
 hr {
-    margin: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-color: rgba(128, 128, 128,0.5);
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: rgba(128, 128, 128, 0.5);
 }
 .heb {
-    font-family: Conv_BNBilbo;
+  font-family: Conv_BNBilbo;
 }
-.more-opacity {
-    background-color: rgba(255, 219, 23,0.9);
-}
+// .more-opacity {
+//     background-color: rgba(255, 219, 23,0.9);
+// }
 .header {
-    width: 250px;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 50px;
-    background-color: #ffdb17;
-    color: black;
-    margin-bottom: -35px;
-    padding: 0 !important;
+  width: 250px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 50px;
+  // background-color: #ffdb17;
+  color: white;
+  margin-bottom: -35px;
+  padding: 0 !important;
 }
 
 .back-btn {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background-color: #00003f;
-    border-radius: 5px;
-    color: white;
-    width: 185px !important;
-    border: none;
-    font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #00003f;
+  border-radius: 5px;
+  color: white;
+  width: 185px !important;
+  border: none;
+  font-size: 18px;
 }
 
-@media(min-width:992px){
-    .root{
-        max-width: 414px;
-        height: 736px;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-        overflow-y: auto;
-    }
-   .mobile-emulator {
-    background-image: url('./assets/images/iphone.png');
+@media (min-width: 992px) {
+  .root {
+    max-width: 414px;
+    height: 736px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    overflow-y: auto;
+  }
+  .mobile-emulator {
+    background-image: url("./assets/images/iphone.png");
     width: 671px;
     height: 1178px;
     background-size: 671px 1178px;
     text-align: left;
     margin-right: auto;
     margin-left: auto;
-}
-.frame-emulator {
+  }
+  .frame-emulator {
     width: 414px;
     height: 736px;
     margin: 221px 0 0 128px;
-}
-.frame-scroller {
+  }
+  .frame-scroller {
     display: inline-block;
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
-}
+  }
+
 }

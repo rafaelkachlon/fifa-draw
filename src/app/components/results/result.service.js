@@ -20,12 +20,28 @@ function resultService($cookies) {
 
     function resultsAreNotEmpty() {
         var players = $cookies.getObject('players');
-        if(players){
-         randomizeResults(players);
+        var playersPro = $cookies.getObject('playersPro');
+        if (players || playersPro) {
+            makeCouples();
         }
         return results.length > 0;
     }
 
+    function makeCouples() {
+        var mode = $cookies.get('mode');
+        if (mode === 'simple') {
+            var players = $cookies.getObject('players');
+            players = randomizeResults(players);
+            handleSimpleDraw(players)
+        }
+        else if (mode === 'level') {
+            var playersPro = $cookies.getObject('playersPro');
+            var playersAmateur = $cookies.getObject('playersAmateur');
+            playersPro = randomizeResults(playersPro);
+            playersAmateur = randomizeResults(playersAmateur);
+            handleByLevelDraw(playersAmateur, playersPro);
+        }
+    }
     function randomizeResults(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -40,7 +56,11 @@ function resultService($cookies) {
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue;
         }
+        return array;
 
+    }
+
+    function handleSimpleDraw(array) {
         while (array.length != 0) {
             var couple = {};
             if (array.length == 1) {
@@ -59,7 +79,102 @@ function resultService($cookies) {
                 array.pop();
             }
         }
-        // return array;
+    }
+
+    function handleByLevelDraw(arrPro, arrAmateur) {
+        while (arrPro.length != 0 || arrAmateur.length != 0) {
+            var couple = {};
+            if (arrPro.length == 1 || arrAmateur.length == 1) {
+
+                if (arrPro.length == 1 && arrAmateur.length == 1) {
+
+                    couple = {};
+                    couple.first = arrPro[arrPro.length - 1].name;
+                    couple.second = arrAmateur[arrAmateur.length - 1].name;
+                    results.push(couple);
+                    arrPro.pop();
+                    arrAmateur.pop();
+                }
+
+                else if (arrPro.length <= 1 && arrAmateur.length == 0) {
+                    couple = {};
+                    couple.first = arrPro[arrPro.length - 1].name;
+                    couple.second = null;
+                    results.push(couple);
+                    arrPro.pop();
+                }
+                else if (arrPro.length == 0 && arrAmateur.length <= 1) {
+                    couple = {};
+                    couple.first = arrAmateur[arrAmateur.length - 1].name;
+                    couple.second = null;
+                    results.push(couple);
+                    arrAmateur.pop();
+                }
+                else if (arrPro.length > 1 && arrAmateur.length == 1) {
+                    couple = {};
+                    couple.first = arrPro[arrPro.length - 1].name;
+                    couple.second = arrAmateur[arrAmateur.length - 1].name;
+                    results.push(couple);
+                    arrPro.pop();
+                    arrAmateur.pop();
+                }
+                else if (arrPro.length == 1 && arrAmateur.length > 1) {
+                    couple = {};
+                    couple.first = arrPro[arrPro.length - 1].name;
+                    couple.second = arrAmateur[arrAmateur.length - 1].name;
+                    results.push(couple);
+                    arrPro.pop();
+                    arrAmateur.pop();
+                }
+            }
+            else {
+                if (arrPro.length > 0 && arrAmateur.length > 0) {
+                    couple = {};
+                    couple.first = arrPro[arrPro.length - 1].name;
+                    couple.second = arrAmateur[arrAmateur.length - 1].name;
+                    results.push(couple);
+                    arrPro.pop();
+                    arrAmateur.pop();
+                }
+                else {
+                    if (arrPro.length == 0) {
+                        if (arrAmateur.length > 1) {
+                            couple = {};
+                            couple.first = arrAmateur[arrAmateur.length - 1].name;
+                            couple.second = arrAmateur[arrAmateur.length - 2].name;
+                            results.push(couple);
+                            arrAmateur.pop();
+                            arrAmateur.pop();
+                        }
+                        else {
+                            couple = {};
+                            couple.first = arrAmateur[arrAmateur.length - 1].name;
+                            couple.second = null;
+                            results.push(couple);
+                            arrAmateur.pop();
+                        }
+                    }
+                    else if (arrAmateur.length == 0) {
+                        if (arrPro.length > 1) {
+                            couple = {};
+                            couple.first = arrPro[arrPro.length - 1].name;
+                            couple.second = arrPro[arrPro.length - 2].name;
+                            results.push(couple);
+                            arrPro.pop();
+                            arrPro.pop();
+                        }
+                        else {
+                            Scouple = {};
+                            couple.first = arrPro[arrPro.length - 1].name;
+                            couple.second = null;
+                            results.push(couple);
+                            arrPro.pop();
+                        }
+                    }
+                }
+
+            }
+        }
     }
 
     return {
