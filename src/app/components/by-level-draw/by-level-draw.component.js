@@ -14,13 +14,13 @@ byLevelDrawController.$inject = ['$state', 'resultService'];
 function byLevelDrawController($state, resultService) {
     var vm = this;
     vm.name = "הגרל בין רמות";
-    vm.CountPro = 0;
-    vm.CountAmateur = 0;
-    vm.PlayersPro = null;
-    vm.PlayersAmateur = null;
+    vm.countPro = 0;
+    vm.countAmateur = 0;
+    vm.playersPro = null;
+    vm.playersAmateur = null;
 
 
-    vm.AddOnePro = function () {
+    vm.addOnePro = function () {
         if (vm.CountPro == 0) {
             vm.CountPro = 2;
         }
@@ -29,13 +29,13 @@ function byLevelDrawController($state, resultService) {
         }
     };
 
-    vm.RemoveOnePro = function () {
+    vm.removeOnePro = function () {
         if (vm.CountPro > 2) {
             vm.CountPro--;
         }
     };
 
-    vm.AddOneAmateur = function () {
+    vm.addOneAmateur = function () {
         if (vm.CountAmateur == 0) {
             vm.CountAmateur = 2;
         }
@@ -44,13 +44,13 @@ function byLevelDrawController($state, resultService) {
         }
     };
 
-    vm.RemoveOneAmateur = function () {
+    vm.removeOneAmateur = function () {
         if (vm.CountAmateur > 2) {
             vm.CountAmateur--;
         }
     };
 
-    vm.Submit = function () {
+    vm.submit = function () {
         if (vm.CountPro != 0 && vm.CountAmateur != 0) {
             this.isInvalid = false;
 
@@ -70,7 +70,7 @@ function byLevelDrawController($state, resultService) {
         }
     };
 
-    vm.Shuffle = function () {
+    vm.shuffle = function () {
 
         var counterPro = 0;
         var counterAmateur = 0;

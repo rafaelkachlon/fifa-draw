@@ -21,7 +21,7 @@ function simpleDrawController($state, resultService, $cookies) {
     vm.Players = $cookies.getObject('players');
 
 
-    vm.Submit = function () {
+    vm.submit = function () {
         if (vm.Count != 0) {
             this.isInvalid = false;
             $cookies.remove('count');
@@ -37,7 +37,7 @@ function simpleDrawController($state, resultService, $cookies) {
         }
     };
 
-    vm.AddOne = function () {
+    vm.addOne = function () {
         if (vm.Count == 0) {
             vm.Count = 4;
         }
@@ -46,11 +46,12 @@ function simpleDrawController($state, resultService, $cookies) {
         }
     };
 
-    vm.RemoveOne = function () {
+    vm.removeOne = function () {
         if (vm.Count > 4) {
             vm.Count--;
         }
     };
+
 
     vm.Shuffle = function () {
         if (vm.playersForm.$valid) {

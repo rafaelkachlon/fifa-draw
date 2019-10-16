@@ -13,16 +13,16 @@ function menuController($state) {
     var vm = this;
     vm.name = "מי נגד Me?";
 
-    vm.GoToSimpleDraw = function () {
+    vm.goToSimpleDraw = function () {
         $state.go('simpleDraw');
     };
-    vm.GoToByLevelDraw = function () {
+    vm.goToByLevelDraw = function () {
         $state.go('byLevelDraw');
     };
-    vm.GoToHelp = function () {
+    vm.goToHelp = function () {
         $state.go('help');
     };
-    vm.GoToAbout = function () {
+    vm.goToAbout = function () {
         $state.go('about');
     };
 }

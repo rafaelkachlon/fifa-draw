@@ -8,7 +8,7 @@ angular
 backButtonController.$inject = ['$state'];
 function backButtonController($state) {
     var vm = this;
-    vm.Back = function () {
+    vm.back = function () {
         $state.go('menu');
     };
 }
