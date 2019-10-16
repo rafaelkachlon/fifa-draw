@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-angular-templatecache": "^2.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
@@ -24,11 +24,12 @@
   "author": "Rafael Kachlon",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.2.1",
-    "angular": "^1.6.5",
-    "angular-animate": "^1.6.5",
-    "angular-ui-router": "^1.0.3",
+    "angular": "^1.7.8",
+    "angular-animate": "^1.7.8",
+    "angular-cookies": "^1.7.8",
+    "angular-ui-router": "^1.0.22",
     "bootstrap": "^3.3.7",
-    "font-awesome": "4.7.0"
+    "font-awesome": "4.7.0",
+    "jquery": "^3.2.1"
   }
 }
