@@ -3,18 +3,22 @@
     <h1 class="heb">{{vm.name}}</h1>
     <p class="heb hm-players hm-players-levels">כמה שחקנים? <span>(4-20)</span></p>
     <hr />
-    <form name="myForm" ng-submit="vm.submit()">
+    <form name="myForm" ng-submit="vm.Submit()">
       <div class="heb">מקצוענים:</div>
       <div class="inputButtons">
-        <div ng-click="vm.addOnePro()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-plus plusMinus"></span></div>
-        <input ng-model="vm.countPro" class="inputButtonsChild countInput heb" type="text" readonly required />
-        <div ng-click="vm.removeOnePro()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-minus plusMinus"></span></div>
+        <div ng-click="vm.AddOnePro()" class="inputButtonsChild inputButtons"><span
+            class="glyphicon glyphicon-plus plusMinus"></span></div>
+        <input ng-model="vm.CountPro" class="inputButtonsChild countInput heb" type="text" readonly required />
+        <div ng-click="vm.RemoveOnePro()" class="inputButtonsChild inputButtons"><span
+            class="glyphicon glyphicon-minus plusMinus"></span></div>
       </div>
       <div class="heb">חובבנים:</div>
       <div class="inputButtons">
-        <div ng-click="vm.addOneAmateur()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-plus plusMinus"></span></div>
-        <input ng-model="vm.countAmateur" class="inputButtonsChild countInput heb" type="text" readonly required />
-        <div ng-click="vm.removeOneAmateur()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-minus plusMinus"></span></div>
+        <div ng-click="vm.AddOneAmateur()" class="inputButtonsChild inputButtons"><span
+            class="glyphicon glyphicon-plus plusMinus"></span></div>
+        <input ng-model="vm.CountAmateur" class="inputButtonsChild countInput heb" type="text" readonly required />
+        <div ng-click="vm.RemoveOneAmateur()" class="inputButtonsChild inputButtons"><span
+            class="glyphicon glyphicon-minus plusMinus"></span></div>
       </div>
       <input class="confirm-btn heb" type="submit" value="אשר" />
       <div ng-show="vm.isInvalid" class="alert alert-danger">אנא בחר מספר שחקנים (לפחות 2 מכל קבוצה)</div>
@@ -26,12 +30,12 @@
       <div ng-show="vm.showPlayersError" class="alert alert-danger">חובה להכניס שמות שחקנים</div>
       <form>
         <p class="heb" ng-show="vm.IsValid">מקצוענים</p>
-        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.playersPro" value="p.name" placeholder="שחקן {{$index+1}}"
-               required />
+        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.PlayersPro" value="p.name"
+          placeholder="שחקן {{$index+1}}" required />
         <br />
         <p class="heb" ng-show="vm.IsValid">חובבנים</p>
-        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.playersAmateur" value="p.name" placeholder="שחקן {{$index+1}}"
-               required />
+        <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.PlayersAmateur" value="p.name"
+          placeholder="שחקן {{$index+1}}" required />
         <br />
         <input type="submit" class="confirm-btn heb draw" ng-show="vm.ShowButton" ng-click="vm.Shuffle()" value="הגרל">
       </form>

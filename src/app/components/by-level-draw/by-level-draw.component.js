@@ -14,13 +14,13 @@ byLevelDrawController.$inject = ['$state', 'resultService'];
 function byLevelDrawController($state, resultService) {
     var vm = this;
     vm.name = "הגרל בין רמות";
-    vm.countPro = 0;
-    vm.countAmateur = 0;
-    vm.playersPro = null;
-    vm.playersAmateur = null;
+    vm.CountPro = 0;
+    vm.CountAmateur = 0;
+    vm.PlayersPro = null;
+    vm.PlayersAmateur = null;
 
 
-    vm.addOnePro = function () {
+    vm.AddOnePro = function () {
         if (vm.CountPro == 0) {
             vm.CountPro = 2;
         }
@@ -29,13 +29,13 @@ function byLevelDrawController($state, resultService) {
         }
     };
 
-    vm.removeOnePro = function () {
+    vm.RemoveOnePro = function () {
         if (vm.CountPro > 2) {
             vm.CountPro--;
         }
     };
 
-    vm.addOneAmateur = function () {
+    vm.AddOneAmateur = function () {
         if (vm.CountAmateur == 0) {
             vm.CountAmateur = 2;
         }
@@ -44,13 +44,13 @@ function byLevelDrawController($state, resultService) {
         }
     };
 
-    vm.removeOneAmateur = function () {
+    vm.RemoveOneAmateur = function () {
         if (vm.CountAmateur > 2) {
             vm.CountAmateur--;
         }
     };
 
-    vm.submit = function () {
+    vm.Submit = function () {
         if (vm.CountPro != 0 && vm.CountAmateur != 0) {
             this.isInvalid = false;
 
@@ -70,7 +70,7 @@ function byLevelDrawController($state, resultService) {
         }
     };
 
-    vm.shuffle = function () {
+    vm.Shuffle = function () {
 
         var counterPro = 0;
         var counterAmateur = 0;
@@ -89,8 +89,8 @@ function byLevelDrawController($state, resultService) {
         if (counterPro == vm.PlayersPro.length && counterAmateur == vm.PlayersAmateur.length) {
 
             resultService.emptyResults();
-            var arrPro = vm.randomizeResults(vm.PlayersPro);
-            var arrAmateur = vm.randomizeResults(vm.PlayersAmateur);
+            var arrPro = vm.RandomizeResults(vm.PlayersPro);
+            var arrAmateur = vm.RandomizeResults(vm.PlayersAmateur);
             while (arrPro.length != 0 || arrAmateur.length != 0) {
                 var couple = {};
                 if (arrPro.length == 1 || arrAmateur.length == 1) {
@@ -191,7 +191,7 @@ function byLevelDrawController($state, resultService) {
         }
     };
 
-    vm.randomizeResults = function (array) {
+    vm.RandomizeResults = function (array) {
 
         var currentIndex = array.length, temporaryValue, randomIndex;
 
