@@ -5,9 +5,11 @@
 
         <form name="myForm" ng-submit="vm.Submit()">
             <div class="inputButtons">
-                <div ng-click="vm.AddOne()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-plus plusMinus"></span></div>
+                <div ng-click="vm.AddOne()" class="inputButtonsChild inputButtons"><span
+                        class="glyphicon glyphicon-plus plusMinus"></span></div>
                 <input ng-model="vm.Count" class="inputButtonsChild countInput heb" type="text" readonly required />
-                <div ng-click="vm.RemoveOne()" class="inputButtonsChild inputButtons"><span class="glyphicon glyphicon-minus plusMinus"></span></div>
+                <div ng-click="vm.RemoveOne()" class="inputButtonsChild inputButtons"><span
+                        class="glyphicon glyphicon-minus plusMinus"></span></div>
             </div>
             <input class="confirm-btn heb" type="submit" value="אשר" />
             <div ng-show="vm.isInvalid" class="alert alert-danger">אנא בחר מספר שחקנים (לפחות 4)</div>
@@ -15,12 +17,16 @@
         <div class="namesInputs">
             <p class="whoplays heb" ng-show="vm.ShowButton">מי משחק?</p>
             <hr ng-show="vm.ShowButton" />
-            <div ng-show="vm.showPlayersError" class="alert alert-danger">חובה להכניס שמות שחקנים</div>
-            <form>
-                <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.Players" value="p.name" placeholder="שחקן {{$index+1}}"
-                    required />
+
+            <form name="vm.playersForm" novalidate>
+                <input class="playerInput" type="text" ng-model="p.name" ng-repeat="p in vm.Players"
+                    name="player{{$index}}" placeholder="שחקן {{$index+1}}" required
+                    ng-class="{'error':vm.playersForm.player{{$index}}.$invalid && vm.playersForm.player{{$index}}.$invalid  && vm.submitted}" />
                 <br />
-                <input type="submit" class="confirm-btn heb draw" ng-show="vm.ShowButton" ng-click="vm.Shuffle()" value="הגרל">
+                <div ng-show="vm.playersForm.$invalid && vm.submitted" class="alert alert-danger">חובה להכניס שמות
+                    שחקנים</div>
+                <input type="submit" class="confirm-btn heb draw" ng-show="vm.Players.length>0"
+                    ng-click="vm.Shuffle();vm.submitted = true" value="הגרל">
             </form>
         </div>
         <back-button></back-button>

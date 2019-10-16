@@ -9,7 +9,7 @@ angular
 resultController.$inject = ['$state', 'resultService', '$timeout'];
 
 function resultController($state, resultService, $timeout) {
-    if (resultService.resultsAreNotEmpty() || true) {
+    if (resultService.resultsAreNotEmpty()) {
         var vm = this;
         vm.name = "והרי תוצאות";
         vm.couples = [];

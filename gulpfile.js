@@ -49,6 +49,7 @@ gulp.task('vendors',function(){
         './node_modules/angular/angular.js',
         './node_modules/angular-animate/angular-animate.js',
         './node_modules/angular-ui-router/release/angular-ui-router.min.js',
+        './node_modules/angular-cookies/angular-cookies.min.js',
         './node_modules/bootstrap/dist/js/bootstrap.min.js',
         ])
         .pipe(concat('vendors.js'))
