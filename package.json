@@ -19,17 +19,17 @@
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
-    "lite-server": "^2.3.0"
+    "lite-server": "^2.6.1"
   },
   "author": "Rafael Kachlon",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.7.8",
+    "angular": "^1.8.2",
     "angular-animate": "^1.7.8",
     "angular-cookies": "^1.7.8",
     "angular-ui-router": "^1.0.22",
     "bootstrap": "^3.3.7",
     "font-awesome": "4.7.0",
-    "jquery": "^3.2.1"
+    "jquery": "^3.6.0"
   }
 }
